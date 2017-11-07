@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 public class InputManager {
     public boolean jPressed;
     public boolean fPressed;
+    public boolean spacePressed;
 
     public static final InputManager instance = new InputManager();
 
@@ -23,6 +24,9 @@ public class InputManager {
         if(e.getKeyCode() == KeyEvent.VK_F){
             fPressed = true;
         }
+        if(e.getKeyCode() == KeyEvent.VK_SPACE){
+            spacePressed = true;
+        }
 
     }
 
@@ -33,6 +37,9 @@ public class InputManager {
 
         if(e.getKeyCode() == KeyEvent.VK_F){
             fPressed = false;
+        }
+        if(e.getKeyCode() == KeyEvent.VK_SPACE){
+            spacePressed = false;
         }
     }
 

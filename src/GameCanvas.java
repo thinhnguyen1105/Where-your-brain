@@ -6,6 +6,7 @@ import brain.FallingObjects.Spawner;
 import brain.playershape.PlayerLeftShape;
 import brain.playershape.PlayerRightShape;
 import brain.scenes.GamePlayScene;
+import brain.scenes.GameStartScene;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,7 +25,7 @@ public class GameCanvas extends JPanel {
         backBuffer = new BufferedImage(384,600, BufferedImage.TYPE_INT_ARGB);
 
         backGraphics = backBuffer.getGraphics();
-        SceneManager.changeScene(new GamePlayScene());
+        SceneManager.changeScene(new GameStartScene());
 
     }
 

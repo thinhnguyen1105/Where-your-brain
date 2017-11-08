@@ -1,8 +1,10 @@
 package bases;
 
+import bases.actions.Action;
 import brain.FallingObjects.FallingObjects;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Vector;
 
 /**
@@ -15,6 +17,9 @@ public class GameObject {
     public Renderer renderer;
     
     public static boolean isActive;
+
+    public ArrayList<Action> actions;
+    public ArrayList<Action> newActions;
     
     static Vector<GameObject> gameObjects = new Vector<>();
     
@@ -25,6 +30,8 @@ public class GameObject {
     public GameObject(){
         position = new Vector2D();
         isActive = true;
+        actions = new ArrayList<>();
+        newActions = new ArrayList<>();
     }
     public static void add(GameObject gameObject){
         newGameObjects.add(gameObject);
@@ -39,11 +46,23 @@ public class GameObject {
     public void run() {
 
     }
+
+    public void runActions(){
+        // run for all actions and if run return true then remove it
+        this.actions.removeIf(action -> action.run(this));
+        this.actions.addAll(newActions);
+        newActions.clear();
+    }
+
+    public void addAction(Action action){
+        newActions.add(action);
+    }
     
     public static void runAll(){
         for(GameObject gameObject : gameObjects){
             if(gameObject.isActive){
                 gameObject.run();
+                gameObject.runActions();
             }
         }
         gameObjects.addAll(newGameObjects);
@@ -68,4 +87,6 @@ public class GameObject {
         gameObjects.clear();
         newGameObjects.clear();
     }
+
+
 }

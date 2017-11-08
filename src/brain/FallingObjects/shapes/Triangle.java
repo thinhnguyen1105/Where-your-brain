@@ -27,7 +27,6 @@ public class Triangle extends FallingObjects {
         if(this.position.x < 200){
             if(this.hitBox.collideWith(PlayerLeftShape.boxCollider) && this.type == PlayerLeftShape.currentType){
                 Score.addScore(1);
-                this.isActive = false;
                 GameObject.remove(this);
             }
         }

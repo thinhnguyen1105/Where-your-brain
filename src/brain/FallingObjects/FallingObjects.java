@@ -23,6 +23,8 @@ public class FallingObjects extends GameObject {
 
     public FallingObjects(){
         hitBox = new BoxCollider(5,5);
+
+
     }
 
     public static FallingObjects create(int type) {

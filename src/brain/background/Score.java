@@ -14,9 +14,9 @@ public class Score extends GameObject {
 
     @Override
     public void render(Graphics g) {
-        g.setColor(Color.WHITE);
-        g.setFont(new Font("Moonshiner",Font.BOLD,30));
-        g.drawString("Score : " +Score.score,290,40);
+//        g.setColor(Color.WHITE);
+//        g.setFont(new Font("Moonshiner",Font.BOLD,30));
+//        g.drawString("Score : " +Score.score,290,40);
     }
 
     public Score(){

@@ -1,11 +1,6 @@
 import bases.GameObject;
 import bases.SceneManager;
-import bases.Vector2D;
 import brain.background.*;
-import brain.FallingObjects.Spawner;
-import brain.playershape.PlayerLeftShape;
-import brain.playershape.PlayerRightShape;
-import brain.scenes.GamePlayScene;
 import brain.scenes.GameStartScene;
 
 import javax.swing.*;

@@ -4,14 +4,13 @@ import bases.GameObject;
 import bases.Scene;
 import bases.Vector2D;
 import brain.FallingObjects.Spawner;
+import brain.FallingObjects.SpawnerManager;
 import brain.background.*;
 import brain.playershape.PlayerLeftShape;
 import brain.playershape.PlayerRightShape;
 
 public class GamePlayScene implements Scene {
-    Spawner leftSpawner = new Spawner(new Vector2D(105,-20));
 
-    Spawner rightSpawner = new Spawner(new Vector2D(300,-20));
 
 
     @Override
@@ -39,9 +38,7 @@ public class GamePlayScene implements Scene {
 
         GameObject.add(new PlayerLeftShape());
 
-        GameObject.add(leftSpawner);
-
-        GameObject.add(rightSpawner);
+        GameObject.add(new SpawnerManager());
 
         GameObject.add(new LifesOfPlayer());
     }

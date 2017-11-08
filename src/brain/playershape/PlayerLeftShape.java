@@ -3,7 +3,6 @@ package brain.playershape;
 import bases.GameObject;
 import bases.ImageRenderer;
 import bases.Renderer;
-import bases.SceneManager;
 import bases.physics.BoxCollider;
 import bases.physics.PhysicsBody;
 import brain.FallingObjects.FallingObjects;
@@ -12,8 +11,6 @@ import brain.FallingObjects.shapes.Diamond;
 import brain.FallingObjects.shapes.Square;
 import brain.FallingObjects.shapes.Triangle;
 import brain.input.InputManager;
-import brain.scenes.GameOverScene;
-import brain.scenes.GamePlayScene;
 
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -88,7 +85,9 @@ public class PlayerLeftShape extends GameObject implements PhysicsBody {
         count = 0;
     }
 
-
+    public void getHit(){
+        isActive = false;
+    }
 
     @Override
     public BoxCollider getBoxCollider() {

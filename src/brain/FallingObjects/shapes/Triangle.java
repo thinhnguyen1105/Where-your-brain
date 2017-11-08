@@ -4,7 +4,6 @@ package brain.FallingObjects.shapes;
 import bases.GameObject;
 import bases.ImageRenderer;
 import brain.FallingObjects.FallingObjects;
-import brain.background.LifesOfPlayer;
 import brain.background.Score;
 import brain.playershape.PlayerLeftShape;
 import brain.playershape.PlayerRightShape;
@@ -27,6 +26,7 @@ public class Triangle extends FallingObjects {
         if(this.position.x < 200){
             if(this.hitBox.collideWith(PlayerLeftShape.boxCollider) && this.type == PlayerLeftShape.currentType){
                 Score.addScore(1);
+                this.isActive = false;
                 GameObject.remove(this);
             }
         }
@@ -37,6 +37,6 @@ public class Triangle extends FallingObjects {
             }
         }
 
-    }
 
+    }
 }

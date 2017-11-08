@@ -4,7 +4,6 @@ package brain.FallingObjects.shapes;
 import bases.GameObject;
 import bases.ImageRenderer;
 import brain.FallingObjects.FallingObjects;
-import brain.background.LifesOfPlayer;
 import brain.background.Score;
 import brain.playershape.PlayerLeftShape;
 import brain.playershape.PlayerRightShape;
@@ -16,7 +15,6 @@ public class Square extends FallingObjects {
     public Square(){
 
         super();
-
         this.renderer = new ImageRenderer("assets/shape/Rectangle.png");
     }
 

@@ -1,7 +1,10 @@
 import bases.GameObject;
-import bases.SceneManager;
+import bases.Vector2D;
 import brain.background.*;
-import brain.scenes.GameStartScene;
+import brain.FallingObjects.Spawner;
+import brain.playershape.PlayerLeftShape;
+import brain.playershape.PlayerRightShape;
+import brain.traps.TrapSpawner;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,20 +17,56 @@ public class GameCanvas extends JPanel {
 
     BufferedImage backBuffer;
     Graphics backGraphics;
+
+    Spawner leftSpawner = new Spawner(new Vector2D(105,-20));
+
+    Spawner rightSpawner = new Spawner(new Vector2D(300,-20));
+
     Score score = new Score();
 
     public GameCanvas(){
         backBuffer = new BufferedImage(384,600, BufferedImage.TYPE_INT_ARGB);
 
         backGraphics = backBuffer.getGraphics();
-        SceneManager.changeScene(new GameStartScene());
+
+        GameObject.add(new BackGround());
+        System.out.println("yes");
+
+//        GameObject.add(new Score());
+
+        GameObject.add(new LightEffect1());
+
+        GameObject.add(new LightEffect2());
+
+        GameObject.add(new LightEffect3());
+
+        GameObject.add(new LightEffect4());
+
+        GameObject.add(new LightEffect5());
+
+        GameObject.add(new LightEffect_Am2());
+
+        GameObject.add(new LightEffect_Am3());
+
+        GameObject.add(new PlayerRightShape());
+
+        GameObject.add(new PlayerLeftShape());
+
+        GameObject.add(leftSpawner);
+
+        GameObject.add(rightSpawner);
+
+        GameObject.add(new TrapSpawner());
+
 
     }
+
+
+
 
     public void run() {
 
         GameObject.runAll();
-        SceneManager.changeSceneIfNeeded();
 
     }
 

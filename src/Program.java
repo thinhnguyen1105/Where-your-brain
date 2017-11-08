@@ -6,6 +6,5 @@ public class Program {
         GameWindow gameWindow = new GameWindow();
         gameWindow.gameLoop();
         System.out.println("hello");
-        System.out.println("yes");
     }
 }

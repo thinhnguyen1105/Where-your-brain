@@ -7,12 +7,16 @@ import brain.FallingObjects.shapes.Circle;
 import brain.FallingObjects.shapes.Diamond;
 import brain.FallingObjects.shapes.Square;
 import brain.FallingObjects.shapes.Triangle;
-import brain.background.LifesOfPlayer;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.concurrent.ThreadLocalRandom;
 
 
 public class FallingObjects extends GameObject {
     public BoxCollider hitBox;
-    public static int currentType;
+
+    private static ArrayList<Integer> index = new ArrayList<>(Arrays.asList(0,1,2,3));
 
     public static int Speed = 5;
 
@@ -23,49 +27,34 @@ public class FallingObjects extends GameObject {
 
     public FallingObjects(){
         hitBox = new BoxCollider(5,5);
-
-
     }
 
     public static FallingObjects create(int type) {
         if (type == CIRCLE) {
-            currentType = type;
             return new Circle();
         }
         if(type == SQUARE){
-            currentType = type;
             return new Square();
 
         }
         if (type == DIAMOND){
-            currentType = type;
             return new Diamond();
         }
         if(type == TRIANGLE){
-            currentType = type;
             return  new Triangle();
         }
         return null;
 
     }
+    public static FallingObjects changeShape(int type){
+        index.remove(new Integer(type));
+        int random = ThreadLocalRandom.current().nextInt(0,2);
+        index.add(type);
+        return create(index.get(random));
+    }
     public void run(){
         this.position.addUp(0,Speed);
         this.hitBox.position.set(this.position);
-        checkLife();
-    }
-
-    public void checkLife() {
-        if (this != null) {
-            if (this.position.y > 600 && this.isActive) {
-                LifesOfPlayer.minusLife();
-                System.out.println(LifesOfPlayer.life);
-//                LifesOfPlayer.isActive = false;
-                GameObject.remove(this);
-            }
-        }
-        if(LifesOfPlayer.life <= 0){
-            LifesOfPlayer.gameOver();
-        }
     }
 
 }
